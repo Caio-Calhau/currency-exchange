@@ -1,3 +1,11 @@
-<body>
-  <app-header></app-header>
-</body>
+<div class="main-container">
+  <div class="header-container">
+    <app-action-labs-logo></app-action-labs-logo>
+    <hr class="divider" />
+    <h1 class="header-title">BRL EXCHANGE RATE</h1>
+  </div>
+  <div class="input-container">
+    <label for="currency-input">Enter the currency code</label>
+    <input id="currency-input" type="text" [(ngModel)]="currencyCode" />
+  </div>
+</div>
