@@ -25,5 +25,10 @@ export class PrimaryButtonComponent {
       next: (response) => console.log('Response:', response),
       error: (error) => console.error('Error:', error),
     });
+
+    this.apiService.getDailyExchangeRate(currencyCode).subscribe({
+      next: (response) => console.log('Response:', response),
+      error: (error) => console.error('Error:', error),
+    });
   }
 }
