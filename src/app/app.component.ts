@@ -1,23 +1,20 @@
 import { Component } from '@angular/core';
-import { ActionLabsLogoComponent } from './action-labs-logo/action-labs-logo.component';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { PrimaryButtonComponent } from './primary-button/primary-button.component';
+import { CurrencyInputComponent } from './currency-input/currency-input.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ActionLabsLogoComponent, FormsModule],
+  imports: [
+    FormsModule,
+    HeaderComponent,
+    PrimaryButtonComponent,
+    CurrencyInputComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'currency-exchange';
-
-  currencyCode = '';
-
-  submitCurrency() {
-    if (!this.currencyCode.trim()) {
-      alert('Currency must be selected');
-      return;
-    }
-    console.log('sending currency code: ', this.currencyCode);
-  }
 }

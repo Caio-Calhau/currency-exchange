@@ -1,17 +1,7 @@
 <main class="main-container">
-  <div class="header-container">
-    <app-action-labs-logo></app-action-labs-logo>
-    <hr class="header-divider" />
-    <h1 class="header-title">BRL EXCHANGE RATE</h1>
-  </div>
-  <div class="input-container">
-    <label for="currency-input">Enter the currency code</label>
-    <input id="currency-input" type="text" [(ngModel)]="currencyCode" />
-  </div>
-  <div class="button-container">
-    <button (click)="submitCurrency()">EXCHANGE RESULT</button>
-    <hr class="button-divider" />
-  </div>
+  <app-header></app-header>
+  <app-currency-input></app-currency-input>
+  <app-primary-button></app-primary-button>
   <div class="exchange-container"></div>
 </main>
 <footer class="footer-container">Copyright 2022 - Action Labs</footer>
