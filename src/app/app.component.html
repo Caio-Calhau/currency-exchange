@@ -9,7 +9,7 @@
     <input id="currency-input" type="text" [(ngModel)]="currencyCode" />
   </div>
   <div class="button-container">
-    <button onclick="console.log('ola')">EXCHANGE RESULT</button>
+    <button (click)="submitCurrency()">EXCHANGE RESULT</button>
     <hr class="button-divider" />
   </div>
   <div class="exchange-container"></div>
