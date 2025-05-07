@@ -4,6 +4,7 @@
     type="text"
     [(ngModel)]="inputCurrency"
     (ngModelChange)="updateCurrency()"
-    placeholder="Enter currency code"
+    maxlength="3"
+    style="text-transform: uppercase"
   />
 </div>
