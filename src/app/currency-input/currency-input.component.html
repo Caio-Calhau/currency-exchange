@@ -1,0 +1,9 @@
+<div class="input-container">
+  <label for="currency-input">Enter the currency code</label>
+  <input
+    type="text"
+    [(ngModel)]="inputCurrency"
+    (ngModelChange)="updateCurrency()"
+    placeholder="Enter currency code"
+  />
+</div>
