@@ -16,7 +16,6 @@ export class PrimaryButtonComponent {
   getData(currencyCode: string) {
     this.apiService.getCurrentExchangeRate(currencyCode).subscribe({
       next: (response) => {
-        console.log('Current Rate:', response);
         this.currencyService.updateCurrentRate(response);
       },
       error: (error) => console.error('Error:', error),
@@ -24,7 +23,6 @@ export class PrimaryButtonComponent {
 
     this.apiService.getDailyExchangeRate(currencyCode).subscribe({
       next: (response) => {
-        console.log('Daily Rates:', response);
         this.currencyService.updateDailyRates(response);
       },
       error: (error) => console.error('Error:', error),
@@ -56,10 +54,10 @@ export class PrimaryButtonComponent {
       },
     });
 
-    this.apiService.getDailyExchangeRate(currencyCode).subscribe({
-      next: (response) =>
-        console.log('Response from getDailyExchangeRate:', response),
-      error: (error) => console.error('Error:', error),
-    });
+    // this.apiService.getDailyExchangeRate(currencyCode).subscribe({
+    //   next: (response) =>
+    //     console.log('Response from getDailyExchangeRate:', response),
+    //   error: (error) => console.error('Error:', error),
+    // });
   }
 }
