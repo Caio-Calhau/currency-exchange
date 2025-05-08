@@ -1,12 +1,22 @@
-<div class="exchange-container">
-  <div class="exchange-rate">
-    <p class="title">Exchange rate now</p>
-    <p class="subtitle">XX/XX/XXXX - 20h49</p>
+<ng-container
+  *ngIf="(isLoading$ | async) === false && (exchangeData$ | async) as data"
+>
+  <div class="exchange-container">
+    <div class="exchange-rate">
+      <p class="title">Exchange rate now</p>
+      <p class="subtitle">
+        {{
+          (exchangeData$ | async)?.lastUpdatedAt | date : "dd/MM/yyyy - HH'h'mm"
+        }}
+      </p>
+    </div>
+    <div>
+      <p class="currency-text">{{ currencyCode$ | async }}/BRL</p>
+    </div>
   </div>
-  <div>
-    <p class="currency-text">USD/BRL</p>
+  <div class="currency-container">
+    <p class="currency-text">
+      R$ {{ ((exchangeData$ | async)?.rate ?? 0).toFixed(2).replace(".", ",") }}
+    </p>
   </div>
-</div>
-<div class="currency-container">
-  <p class="currency-text">R$ 5,00</p>
-</div>
+</ng-container>

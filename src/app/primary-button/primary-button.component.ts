@@ -13,6 +13,24 @@ export class PrimaryButtonComponent {
     private currencyService: CurrencyService
   ) {}
 
+  getData(currencyCode: string) {
+    this.apiService.getCurrentExchangeRate(currencyCode).subscribe({
+      next: (response) => {
+        console.log('Current Rate:', response);
+        this.currencyService.updateCurrentRate(response);
+      },
+      error: (error) => console.error('Error:', error),
+    });
+
+    this.apiService.getDailyExchangeRate(currencyCode).subscribe({
+      next: (response) => {
+        console.log('Daily Rates:', response);
+        this.currencyService.updateDailyRates(response);
+      },
+      error: (error) => console.error('Error:', error),
+    });
+  }
+
   submitCurrency() {
     const currencyCode = this.currencyService.getCurrentCurrency();
 
@@ -21,10 +39,21 @@ export class PrimaryButtonComponent {
       return;
     }
 
+    this.currencyService.setLoading(true);
+
     this.apiService.getCurrentExchangeRate(currencyCode).subscribe({
-      next: (response) =>
-        console.log('Response from getCurrencyExchangeRate:', response),
-      error: (error) => console.error('Error:', error),
+      next: (response) => {
+        this.currencyService.updateExchangeData({
+          rate: response.exchangeRate,
+          lastUpdatedAt: new Date().toISOString(),
+          fromSymbol: `${currencyCode}/BRL`,
+        });
+        this.currencyService.setLoading(false);
+      },
+      error: (error) => {
+        console.error('Error:', error);
+        this.currencyService.setLoading(false);
+      },
     });
 
     this.apiService.getDailyExchangeRate(currencyCode).subscribe({
