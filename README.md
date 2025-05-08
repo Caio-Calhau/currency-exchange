@@ -1,59 +1,26 @@
-# CurrencyExchange
+# Action Labs BRL Exchange Rate
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
 
-## Development server
+## Description
 
-To start a local development server, run:
+This is a currency converter web application built as part of an interview project. The main goal is to allow users to convert various international currencies into Brazilian Real (BRL) using real-time exchange rates.
 
-```bash
-ng serve
-```
+## Supported Currencies
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+You can test the converter with the following currency codes:
 
-## Code scaffolding
+- USD – US Dollar
+- EUR – Euro
+- GBP – British Pound
+- JPY – Japanese Yen
+- CAD – Canadian Dollar
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Notes
 
-```bash
-ng generate component component-name
-```
+This is my first project built with Angular, and I really enjoyed the opportunity to dive into this new framework. It was a great challenge for me to explore Angular. This project allowed me to push myself and apply new concepts, which has been a rewarding experience.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Limits
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Currently, the list that displays the exchange rates from the past 30 days is incomplete.
+- Due to time constraints, I was not able to fully implement this feature, but I plan to improve it in future versions.
