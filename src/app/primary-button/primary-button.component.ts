@@ -17,17 +17,19 @@ export class PrimaryButtonComponent {
     const currencyCode = this.currencyService.getCurrentCurrency();
 
     if (!currencyCode?.trim()) {
-      alert('Currency must be selected');
+      alert('Por favor, insira uma moeda para a conversão');
       return;
     }
 
     this.apiService.getCurrentExchangeRate(currencyCode).subscribe({
-      next: (response) => console.log('Response:', response),
+      next: (response) =>
+        console.log('Response from getCurrencyExchangeRate:', response),
       error: (error) => console.error('Error:', error),
     });
 
     this.apiService.getDailyExchangeRate(currencyCode).subscribe({
-      next: (response) => console.log('Response:', response),
+      next: (response) =>
+        console.log('Response from getDailyExchangeRate:', response),
       error: (error) => console.error('Error:', error),
     });
   }
