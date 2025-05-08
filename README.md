@@ -18,7 +18,11 @@ You can test the converter with the following currency codes:
 - JPY – Japanese Yen
 - CAD – Canadian Dollar
 
-## Limits
+## Notes
+
+This is my first project built with Angular, and I really enjoyed the opportunity to dive into this new framework. It was a great challenge for me to explore Angular. This project allowed me to push myself and apply new concepts, which has been a rewarding experience.
+
+### Limits
 
 - Currently, the list that displays the exchange rates from the past 30 days is incomplete.
 - Due to time constraints, I was not able to fully implement this feature, but I plan to improve it in future versions.
