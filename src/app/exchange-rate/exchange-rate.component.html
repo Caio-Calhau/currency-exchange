@@ -11,7 +11,7 @@
       </p>
     </div>
     <div>
-      <p class="currency-text">{{ currencyCode$ | async }}/BRL</p>
+      <p class="currency-text">{{ (exchangeData$ | async)?.fromSymbol }}</p>
     </div>
   </div>
   <div class="currency-container">
