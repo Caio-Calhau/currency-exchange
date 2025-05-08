@@ -1,69 +1,69 @@
-<!-- <ng-container
+<ng-container
   *ngIf="(isLoading$ | async) === false && (exchangeData$ | async) as data"
-> -->
-<div class="exchange-container">
-  <div class="exchange-rate">
-    <p class="title">Exchange rate now</p>
-    <p class="subtitle">
-      {{
-        (exchangeData$ | async)?.lastUpdatedAt | date : "dd/MM/yyyy - HH'h'mm"
-      }}
+>
+  <div class="exchange-container">
+    <div class="exchange-rate">
+      <p class="title">Exchange rate now</p>
+      <p class="subtitle">
+        {{
+          (exchangeData$ | async)?.lastUpdatedAt | date : "dd/MM/yyyy - HH'h'mm"
+        }}
+      </p>
+    </div>
+    <div>
+      <p class="currency-text">{{ currencyCode$ | async }}/BRL</p>
+    </div>
+  </div>
+  <div class="currency-container">
+    <p class="currency-text">
+      R$ {{ ((exchangeData$ | async)?.rate ?? 0).toFixed(2).replace(".", ",") }}
     </p>
   </div>
-  <div>
-    <p class="currency-text">{{ currencyCode$ | async }}/BRL</p>
-  </div>
-</div>
-<div class="currency-container">
-  <p class="currency-text">
-    R$ {{ ((exchangeData$ | async)?.rate ?? 0).toFixed(2).replace(".", ",") }}
-  </p>
-</div>
-<div class="history-container">
-  <div class="expandable-container" role="button" (click)="toggleHistory()">
-    <p class="expandable-text">LAST 30 DAYS</p>
+  <div class="history-container">
+    <div class="expandable-container" role="button" (click)="toggleHistory()">
+      <p class="expandable-text">LAST 30 DAYS</p>
+      @if(!isHistoryOpen) {
+      <app-plus-icon></app-plus-icon>
+      } @else {
+      <app-minus-icon></app-minus-icon>
+      }
+    </div>
     @if(!isHistoryOpen) {
-    <app-plus-icon></app-plus-icon>
+    <hr class="divider" />
     } @else {
-    <app-minus-icon></app-minus-icon>
-    }
-  </div>
-  @if(!isHistoryOpen) {
-  <hr class="divider" />
-  } @else {
-  <div class="history-expandable-container">
-    <div class="card-container">
-      <p class="date">09/03/2022</p>
-      <div class="row">
-        <div class="data-values">
-          <p class="prop-value">OPEN:</p>
-          <p class="currency-value">R$ 5.0666</p>
+    <div class="history-expandable-container">
+      <div class="card-container">
+        <p class="date">09/03/2022</p>
+        <div class="row">
+          <div class="data-values">
+            <p class="prop-value">OPEN:</p>
+            <p class="currency-value">R$ 5.0666</p>
+          </div>
+          <div class="data-values">
+            <p class="prop-value">HIGH:</p>
+            <p class="currency-value">R$ 5.0689</p>
+          </div>
         </div>
-        <div class="data-values">
-          <p class="prop-value">HIGH:</p>
-          <p class="currency-value">R$ 5.0689</p>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="data-values">
-          <p class="prop-value">CLOSE:</p>
-          <p class="currency-value">R$ 5.0038</p>
+        <div class="row">
+          <div class="data-values">
+            <p class="prop-value">CLOSE:</p>
+            <p class="currency-value">R$ 5.0038</p>
+          </div>
+          <div class="data-values">
+            <p class="prop-value">LOW:</p>
+            <p class="currency-value">R$ 4.9836</p>
+          </div>
         </div>
-        <div class="data-values">
-          <p class="prop-value">LOW:</p>
-          <p class="currency-value">R$ 4.9836</p>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="closed-values">
-          <p class="closed-prop-value">CLOSE DIFF (%):</p>
-          <p class="currency-value positive">+1.15%</p>
+        <div class="row">
+          <div class="closed-values">
+            <p class="closed-prop-value">CLOSE DIFF (%):</p>
+            <p class="currency-value positive">+1.15%</p>
+          </div>
         </div>
       </div>
     </div>
+    }
   </div>
-  }
-</div>
-<!-- </ng-container> -->
+</ng-container>
