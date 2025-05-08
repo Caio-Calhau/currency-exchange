@@ -72,10 +72,6 @@
   justify-content: space-between;
 }
 
-.expandable-container:hover {
-  background-color: #eeeeee;
-}
-
 .expandable-text {
   font-weight: 600;
   font-size: 16px;
