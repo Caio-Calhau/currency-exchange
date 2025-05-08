@@ -6,8 +6,6 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 This is a currency converter web application built as part of an interview project. The main goal is to allow users to convert various international currencies into Brazilian Real (BRL) using real-time exchange rates.
 
-This is my first project using Angular, and it gave me hands-on experience with Angular's component system, services, HTTP requests.
-
 ## Supported Currencies
 
 You can test the converter with the following currency codes:
