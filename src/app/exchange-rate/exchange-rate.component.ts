@@ -24,6 +24,7 @@ export class ExchangeRateComponent {
 
   exchangeData$ = this.currencyService.exchangeData$;
   currencyCode$ = this.currencyService.currencyCode$;
+  dailyRates$ = this.currencyService.dailyRates$;
   isLoading$ = this.currencyService.isLoading$;
 
   toggleHistory() {

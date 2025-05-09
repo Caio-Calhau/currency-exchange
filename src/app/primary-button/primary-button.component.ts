@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.services';
 import { CurrencyService } from '../currency.service';
+import { DailyExchangeResponse } from '../interfaces/daily-exchange.interface';
 
 @Component({
   selector: 'app-primary-button',
@@ -54,10 +55,15 @@ export class PrimaryButtonComponent {
       },
     });
 
-    // this.apiService.getDailyExchangeRate(currencyCode).subscribe({
-    //   next: (response) =>
-    //     console.log('Response from getDailyExchangeRate:', response),
-    //   error: (error) => console.error('Error:', error),
-    // });
+    this.apiService.getDailyExchangeRate(currencyCode).subscribe({
+      next: (response: DailyExchangeResponse) => {
+        if (Array.isArray(response?.data)) {
+          this.currencyService.updateDailyRates(response.data);
+        } else {
+          console.warn('Invalid daily exchange rate response:', response);
+        }
+      },
+      error: (error) => console.error('Error:', error),
+    });
   }
 }
