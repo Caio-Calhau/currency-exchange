@@ -31,35 +31,55 @@
     @if(!isHistoryOpen) {
     <hr class="divider" />
     } @else {
-    <div class="history-expandable-container">
-      <div class="card-container">
-        <p class="date">09/03/2022</p>
+    <div
+      class="history-expandable-container"
+      *ngIf="dailyRates$ | async as rates"
+    >
+      <div class="card-container" *ngFor="let day of rates">
+        <p class="date">{{ day.date | date : "dd/MM/yyyy" }}</p>
         <div class="row">
           <div class="data-values">
             <p class="prop-value">OPEN:</p>
-            <p class="currency-value">R$ 5.0666</p>
+            <p class="currency-value">
+              R$ {{ day.open.toFixed(4).replace(".", ",") }}
+            </p>
           </div>
           <div class="data-values">
             <p class="prop-value">HIGH:</p>
-            <p class="currency-value">R$ 5.0689</p>
+            <p class="currency-value">
+              R$ {{ day.high.toFixed(4).replace(".", ",") }}
+            </p>
           </div>
         </div>
 
         <div class="row">
           <div class="data-values">
             <p class="prop-value">CLOSE:</p>
-            <p class="currency-value">R$ 5.0038</p>
+            <p class="currency-value">
+              R$ {{ day.close.toFixed(4).replace(".", ",") }}
+            </p>
           </div>
           <div class="data-values">
             <p class="prop-value">LOW:</p>
-            <p class="currency-value">R$ 4.9836</p>
+            <p class="currency-value">
+              R$ {{ day.low.toFixed(4).replace(".", ",") }}
+            </p>
           </div>
         </div>
 
         <div class="row">
           <div class="closed-values">
             <p class="closed-prop-value">CLOSE DIFF (%):</p>
-            <p class="currency-value positive">+1.15%</p>
+            <p
+              class="currency-value"
+              [ngClass]="{
+                positive: day.closeDiffPercentage >= 0,
+                negative: day.closeDiffPercentage < 0
+              }"
+            >
+              {{ day.closeDiffPercentage >= 0 ? "+" : "" }}
+              {{ day.closeDiffPercentage.toFixed(2).replace(".", ",") }}%
+            </p>
           </div>
         </div>
       </div>
